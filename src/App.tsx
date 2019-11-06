@@ -8,8 +8,7 @@ import {
   StatusBar,
 } from 'react-native';
 
-import Header from './Header';
-import Navigation from './Navigation';
+import { Header, Navigation } from './components';
 
 const App = () => {
 	return (
@@ -19,16 +18,5 @@ const App = () => {
 		</>
 	);
 };
-
-const styles = StyleSheet.create({
-	pageTitle: {
-		backgroundColor: '#FFC300',
-		color: '#FFF',
-		fontSize: 20,
-		fontWeight: "bold",
-		paddingVertical: 24,
-		paddingHorizontal: 8,
-	}
-});
 
 export default App;
