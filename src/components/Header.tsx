@@ -2,17 +2,17 @@ import React from 'react';
 import {
   SafeAreaView,
   StyleSheet,
-  ScrollView,
   View,
   Text,
-  StatusBar,
+  Image,
 } from 'react-native';
 
 const Header = () => {
 	return (
 		<SafeAreaView>
-			<View>
+			<View style={styles.pageHeader}>
 				<Text style={styles.pageTitle}>HOPSTERS</Text>
+				<Image style={{height: 30, maxWidth: 30}} source={require('../../assets/hopsters-white-rotate.png')}/>
 			</View>
 		</SafeAreaView>
 	);
@@ -20,12 +20,18 @@ const Header = () => {
 
 const styles = StyleSheet.create({
 	pageTitle: {
-		backgroundColor: '#FFC300',
 		color: '#FFF',
 		fontSize: 20,
 		fontWeight: "bold",
+	},
+	pageHeader: {
+		backgroundColor: '#FFC300',
 		paddingVertical: 24,
-		paddingHorizontal: 8,
+		paddingHorizontal: 16,
+		display: "flex",
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: 'space-between',
 	}
 });
 
