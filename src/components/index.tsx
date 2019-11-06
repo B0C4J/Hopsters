@@ -1,4 +1,4 @@
-import Header from './Header';
-import Navigation from './Navigation';
+import Header from './header';
+import Navigation from './navigation';
 
 export { Header, Navigation };
