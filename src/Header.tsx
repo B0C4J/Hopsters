@@ -8,15 +8,13 @@ import {
   StatusBar,
 } from 'react-native';
 
-import Header from './Header';
-import Navigation from './Navigation';
-
-const App = () => {
+const Header = () => {
 	return (
-		<>
-			<Header />
-			<Navigation />
-		</>
+		<SafeAreaView>
+			<View>
+				<Text style={styles.pageTitle}>HOPSTERS</Text>
+			</View>
+		</SafeAreaView>
 	);
 };
 
@@ -31,4 +29,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default App;
+export default Header;
