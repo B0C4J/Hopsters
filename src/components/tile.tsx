@@ -1,20 +1,38 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 
 export interface Props {
 	title: string,
+	icon: any,
+	navigation: any,
 }
 
 export default class Tile extends React.Component<Props> {
 	constructor(props: Props) {
 		super(props);
 	}
+
 	render() {
+		
+		const navigateAction = NavigationActions.navigate({
+			routeName: 'Details',
+			
+			params: {
+				title: this.props.title,
+				icon: this.props.icon,
+				navigation: this.props.navigation,
+			},
+		});
+
 		return (
 			<View style={ styles.tileContainer }>
-				<View style={ styles.tile }>
-					<Text style={{ color: '#fff' }}>{ this.props.title }</Text>
-				</View>
+				<TouchableWithoutFeedback onPress={() => this.props.navigation.dispatch(navigateAction)}>
+					<View style={ styles.tile }>
+						<Image style={{width: '50%', height: '50%', marginBottom: 10}} resizeMode='contain' source={ this.props.icon }/>
+						<Text style={{ color: '#fff' }}>{ this.props.title }</Text>
+					</View>
+				</TouchableWithoutFeedback>
 			</View>
 		);
 	};
@@ -23,12 +41,17 @@ export default class Tile extends React.Component<Props> {
 const styles = StyleSheet.create({
 	tileContainer: {
 		padding: 8,
-		width: '50%',
+		width: '100%',
 		height: 150,
 		flexShrink: 0,
 	},
 	tile: {
-		backgroundColor: '#000',
+		backgroundColor: '#eee',
 		height: '100%',
+		borderRadius: 5,
+		padding: 8,
+		display: 'flex',
+		justifyContent: "center",
+		alignItems: "center",
 	}
 });
