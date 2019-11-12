@@ -2,16 +2,16 @@ import * as React from "react";
 import { Image } from 'react-native';
 import { createAppContainer,  createSwitchNavigator } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-import { PopularScreen, FavoritesScreen, NotesScreen, IndividualDetailsScreen } from '../screens';
+import { HomeScreen, FavoritesScreen, NotesScreen, IndividualDetailsScreen } from '../screens';
 
-const PopularSwitch = createSwitchNavigator({
-	Popular: PopularScreen,
+const HomeSwitch = createSwitchNavigator({
+	Home: HomeScreen,
 	Details: IndividualDetailsScreen
 })
 
 const TabNavigator = createBottomTabNavigator({
-	Popular: {
-		screen: PopularSwitch,
+	Home: {
+		screen: HomeSwitch,
 		navigationOptions: {
 			tabBarIcon: ({}) => (
 				<Image style={{width: '50%', height: '50%'}} resizeMode='contain' source={require('../../assets/icons/fire.png')}/>

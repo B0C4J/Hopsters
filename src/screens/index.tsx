@@ -1,6 +1,6 @@
-import PopularScreen from './popularScreen';
+import HomeScreen from './homeScreen';
 import FavoritesScreen from './favoritesScreen';
 import NotesScreen from './notesScreen';
 import IndividualDetailsScreen from './individualDetailsScreen';
 
-export { PopularScreen, FavoritesScreen, NotesScreen, IndividualDetailsScreen };
+export { HomeScreen, FavoritesScreen, NotesScreen, IndividualDetailsScreen };

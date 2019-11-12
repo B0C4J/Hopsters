@@ -7,7 +7,7 @@ interface Props {
 	navigation: any,
 }
 
-export default class PopularScreen extends React.Component<Props> {
+export default class HomeScreen extends React.Component<Props> {
 	render() {
 		console.log(constants.options);
 		return (
@@ -16,7 +16,7 @@ export default class PopularScreen extends React.Component<Props> {
 					<FlatList
 						data = { constants.options }
 						keyExtractor = { item => item.key }
-						renderItem={({ item }) =>  <Tile title={ item.title } icon={ item.icon } navigation={ this.props.navigation } />}
+						renderItem={({ item }) => <Tile title={ item.title } icon={ item.icon } navigation={ this.props.navigation } />}
 					/>
 				</View>
 			</View>
