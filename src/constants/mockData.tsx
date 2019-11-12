@@ -28,6 +28,7 @@ const options = [
 		key: '01',
 		title: 'Recently Viewed',
 		icon: require('../../assets/icons/eye.png'),
+		data: 'recent',
 	},
 	{
 		key: '02',

@@ -1,7 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet, Image, Button, SafeAreaView, FlatList, ScrollView } from 'react-native';
-import { Tile } from '../components';
-import constants from '../constants/mockData';
+import { AsyncStorage, Text, View, StyleSheet, Image, ScrollView, Alert } from 'react-native';
 
 interface Props {
 	navigation: any,
@@ -9,7 +7,20 @@ interface Props {
 
 export default class IndividualDetailsScreen extends React.Component<Props> {
 	render() {
-		const data = this.props.navigation.getParam('data');
+		const data: any = this.props.navigation.getParam('data');
+		let tempArray = [data];
+
+		console.log(JSON.stringify(tempArray));
+
+		const setUserId = async () => {
+			try {
+				await AsyncStorage.setItem('Recent', JSON.stringify(tempArray));
+			} catch (error) {
+			// Error retrieving data
+			console.log(error.message);
+			}
+		}
+		setUserId();
 		return (
 			<ScrollView>
 				<View style={ styles.pageContainer }>
