@@ -9,14 +9,23 @@ interface Props {
 
 export default class IndividualDetailsScreen extends React.Component<Props> {
 	render() {
-		const title = this.props.navigation.getParam('title');
-		const icon = this.props.navigation.getParam('icon');
+		const data = this.props.navigation.getParam('data');
 		return (
-			<View style={ styles.pageContainer }>
-				<View style={ styles.tileContainer }>
-					<Text> { title } </Text>
+			<ScrollView>
+				<View style={ styles.pageContainer }>
+					<View style={ styles.header }>
+						<Image style={{width: '50%', height: '100%', marginBottom: 10}} resizeMode='contain' source={ data.image }/>
+						<View style = { styles.headerText }>
+							<Text style = { styles.title }>{ data.title }</Text>
+							<Text style = { styles.brewery }>{ data.brewery }</Text>
+							<Text style = {styles.info } >{ data.strength } • { data.style }</Text>
+						</View>
+					</View>
+					<View>
+						<Text>{ data.description }</Text>
+					</View>
 				</View>
-			</View>
+			</ScrollView>
 		);
 	}
 }
@@ -24,17 +33,28 @@ export default class IndividualDetailsScreen extends React.Component<Props> {
 const styles = StyleSheet.create({
 	pageContainer: {
 		padding: 16,
-		flex: 1,
-		alignItems: "center",
-		justifyContent: "center",
-		flexDirection: 'column',
 	},
-	tileContainer: {
-		display: 'flex',
-		alignItems: "center",
-		justifyContent: "center",
+	header: {
+		flex: 1,
 		flexDirection: 'row',
-		flexWrap: "wrap",
+		height: 250,
+		marginBottom: 30,
+	},
+	headerText: {
+		flex: 1,
+		justifyContent: 'center',
+		flexDirection: 'column',
+		height: '100%',
+	},
+	title: {
+		fontSize: 24,
+	},
+	brewery: {
+		fontSize: 16,
+		marginBottom: 16,
+	},
+	info: {
+		fontSize: 12,
 	}
 });
 

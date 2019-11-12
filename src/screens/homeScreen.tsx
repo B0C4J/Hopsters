@@ -9,17 +9,13 @@ interface Props {
 
 export default class HomeScreen extends React.Component<Props> {
 	render() {
-		console.log(constants.options);
 		return (
-			<View style={ styles.pageContainer }>
-				<View style={ styles.tileContainer }>
-					<FlatList
-						data = { constants.options }
-						keyExtractor = { item => item.key }
-						renderItem={({ item }) => <Tile title={ item.title } icon={ item.icon } navigation={ this.props.navigation } />}
-					/>
-				</View>
-			</View>
+			<FlatList
+				style = { styles.pageContainer }
+				data = { constants.options }
+				keyExtractor = { item => item.key }
+				renderItem={({ item }) => <Tile title={ item.title } icon={ item.icon } navigation={ this.props.navigation } route="Tiles" data={ item.data }/>}
+			/>
 		);
 	}
 }
@@ -27,14 +23,6 @@ export default class HomeScreen extends React.Component<Props> {
 const styles = StyleSheet.create({
 	pageContainer: {
 		padding: 16,
-		flex: 1,
-		justifyContent: "center",
-		flexDirection: 'column',
 	},
-	tileContainer: {
-		display: 'flex',
-		justifyContent: "center",
-		width: '100%',
-	}
 });
 

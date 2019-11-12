@@ -1,16 +1,14 @@
 import React from 'react';
-import { Text, View, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { View, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 
 export interface Props {
-	title: string,
-	icon: any,
 	navigation: any,
 	route: string,
 	data: any,
 }
 
-export default class Tile extends React.Component<Props> {
+export default class ImageTile extends React.Component<Props> {
 	constructor(props: Props) {
 		super(props);
 	}
@@ -21,8 +19,6 @@ export default class Tile extends React.Component<Props> {
 			routeName: this.props.route,
 			
 			params: {
-				title: this.props.title,
-				icon: this.props.icon,
 				navigation: this.props.navigation,
 				data: this.props.data,
 			},
@@ -32,8 +28,7 @@ export default class Tile extends React.Component<Props> {
 			<View style={ styles.tileContainer }>
 				<TouchableWithoutFeedback onPress={() => this.props.navigation.dispatch(navigateAction)}>
 					<View style={ styles.tile }>
-						<Image style={{width: '50%', height: '50%', marginBottom: 10}} resizeMode='contain' source={ this.props.icon }/>
-						<Text style={{ color: '#fff' }}>{ this.props.title }</Text>
+						<Image style={{width: '100%', height: '100%', marginBottom: 10}} resizeMode='center' source={ this.props.data.image }/>
 					</View>
 				</TouchableWithoutFeedback>
 			</View>
@@ -44,7 +39,7 @@ export default class Tile extends React.Component<Props> {
 const styles = StyleSheet.create({
 	tileContainer: {
 		padding: 8,
-		width: '100%',
+		width: '50%',
 		height: 150,
 		flexShrink: 0,
 	},

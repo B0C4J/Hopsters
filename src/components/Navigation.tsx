@@ -2,12 +2,13 @@ import * as React from "react";
 import { Image } from 'react-native';
 import { createAppContainer,  createSwitchNavigator } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-import { HomeScreen, FavoritesScreen, NotesScreen, IndividualDetailsScreen } from '../screens';
+import { HomeScreen, FavoritesScreen, NotesScreen, IndividualDetailsScreen, TilesScreen } from '../screens';
 
 const HomeSwitch = createSwitchNavigator({
 	Home: HomeScreen,
-	Details: IndividualDetailsScreen
-})
+	Tiles: TilesScreen,
+	Details: IndividualDetailsScreen,
+});
 
 const TabNavigator = createBottomTabNavigator({
 	Home: {
