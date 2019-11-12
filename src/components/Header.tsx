@@ -12,7 +12,7 @@ const Header = () => {
 		<SafeAreaView>
 			<View style={styles.pageHeader}>
 				<Text style={styles.pageTitle}>HOPSTERS</Text>
-				<Image style={{height: 30, maxWidth: 30}} source={require('../../assets/hopsters-white-rotate.png')}/>
+				<Image style={{height: 30, maxWidth: 30}} source={require('../../assets/hopsters-white-rotate.png')} />
 			</View>
 		</SafeAreaView>
 	);

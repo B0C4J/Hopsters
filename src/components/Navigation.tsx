@@ -15,15 +15,7 @@ const TabNavigator = createBottomTabNavigator({
 		screen: HomeSwitch,
 		navigationOptions: {
 			tabBarIcon: ({}) => (
-				<Image style={{width: '50%', height: '50%'}} resizeMode='contain' source={require('../../assets/icons/fire.png')}/>
-			),
-		},
-	},
-	Favorites: {
-		screen: FavoritesScreen,
-		navigationOptions: {
-			tabBarIcon: ({}) => (
-				<Image style={{width: '50%', height: '50%'}} resizeMode='contain' source={require('../../assets/icons/star.png')}/>
+				<Image style={{width: '50%', height: '50%'}} resizeMode='contain' source={require('../../assets/icons/home.png')}/>
 			),
 		},
 	},
@@ -37,6 +29,9 @@ const TabNavigator = createBottomTabNavigator({
 	},
 }, {
 	resetOnBlur: true,
+	tabBarOptions: {
+		showLabel: false,
+	}
 });
 
 
