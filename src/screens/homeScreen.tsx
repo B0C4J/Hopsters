@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet, Button, SafeAreaView, FlatList, ScrollView } from 'react-native';
+import { StyleSheet, FlatList } from 'react-native';
 import { Tile } from '../components';
 import constants from '../constants/mockData';
 
