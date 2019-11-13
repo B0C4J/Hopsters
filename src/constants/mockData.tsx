@@ -35,11 +35,6 @@ const options = [
 		title: 'Favorites',
 		icon: require('../../assets/icons/star.png'),
 	},
-	{
-		key: '03',
-		title: 'Tasting Notes',
-		icon: require('../../assets/icons/writing.png'),
-	},
 ];
 
 export default {

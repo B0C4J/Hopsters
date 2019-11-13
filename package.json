@@ -9,6 +9,7 @@
     "test": "jest --coverage --watch"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.6.2",
     "react": "16.9.0",
     "react-native": "0.61.3",
     "react-native-fontawesome": "^7.0.0",
@@ -35,15 +36,15 @@
   "jest": {
     "preset": "react-native",
     "moduleFileExtensions": [
-		"ts",
-		"tsx",
-		"js",
-		"jsx",
-		"json",
-		"node"
-	],
-	"transformIgnorePatterns": [ 
-		"node_modules/(?!((jest-)?react-native|react-navigation|@react-navigation/.*))" 
-	]
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?react-native|react-navigation|@react-navigation/.*))"
+    ]
   }
 }

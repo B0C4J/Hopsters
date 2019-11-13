@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, AsyncStorage, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, FlatList, ScrollView } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import { ImageTile } from '../components';
 
 interface Props {
