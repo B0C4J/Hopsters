@@ -10,16 +10,21 @@ export default class IndividualDetailsScreen extends React.Component<Props> {
 		const data: any = this.props.navigation.getParam('data');
 		let tempArray = [data];
 
-		console.log(JSON.stringify(tempArray));
-
 		const setUserId = async () => {
 			try {
-				await AsyncStorage.setItem('Recent', JSON.stringify(tempArray));
-			} catch (error) {
-			// Error retrieving data
-			console.log(error.message);
-			}
-		}
+				AsyncStorage.getItem('Recent').then( async (value: any) => {
+					let recent = new Set(JSON.parse(value));
+
+					if (recent.size === 0){
+						await AsyncStorage.setItem('Recent', JSON.stringify(tempArray));
+					}
+					else if(!value.includes(JSON.stringify(data))) {
+						recent.add(data);
+						await AsyncStorage.setItem('Recent', JSON.stringify(Array.from(recent)));
+					}
+				});
+			} finally {}
+		};
 		setUserId();
 		return (
 			<ScrollView>
