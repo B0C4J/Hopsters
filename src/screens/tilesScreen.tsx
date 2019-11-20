@@ -6,6 +6,11 @@ interface Props {
 	navigation: any,
 }
 
+interface payloadData {
+	key: string,
+	data: Array<any>,
+}
+
 export default class TilesScreen extends React.Component<Props> {
 	state = {
 		isLoading: true,
@@ -22,7 +27,7 @@ export default class TilesScreen extends React.Component<Props> {
 	};
 
 	render() {
-		const dataObject: Object = this.props.navigation.getParam('dataObject');
+		const dataObject: payloadData = this.props.navigation.getParam('dataObject');
 		let data: Array<any> = dataObject.data;
 
 		if (this.state.isLoading && dataObject.key === '01') {
