@@ -1,6 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet, Image, ScrollView } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
+import { Text, View, StyleSheet, Image, ScrollView, AsyncStorage } from 'react-native';
 
 interface Props {
 	navigation: any,
@@ -9,24 +8,8 @@ interface Props {
 export default class IndividualDetailsScreen extends React.Component<Props> {
 	render() {
 		const data: any = this.props.navigation.getParam('data');
-		let tempArray = [data];
 
-		const setUserId = async () => {
-			try {
-				AsyncStorage.getItem('Recent').then( async (value: any) => {
-					let recent = new Set(JSON.parse(value));
-
-					if (recent.size === 0){
-						await AsyncStorage.setItem('Recent', JSON.stringify(tempArray));
-					}
-					else if(!value.includes(JSON.stringify(data))) {
-						recent.add(data);
-						await AsyncStorage.setItem('Recent', JSON.stringify(Array.from(recent)));
-					}
-				});
-			} finally {}
-		};
-		setUserId();
+		recentlyViewed(data);
 		return (
 			<ScrollView>
 				<View style={ styles.pageContainer }>
@@ -46,6 +29,24 @@ export default class IndividualDetailsScreen extends React.Component<Props> {
 		);
 	}
 }
+
+const recentlyViewed = async (data: string) => {
+	let tempArray = [data];
+
+	try {
+		AsyncStorage.getItem('Recent').then( async (value: any) => {
+			let recent = new Set(JSON.parse(value));
+
+			if (recent.size === 0){
+				await AsyncStorage.setItem('Recent', JSON.stringify(tempArray));
+			}
+			else if(!value.includes(JSON.stringify(data))) {
+				recent.add(data);
+				await AsyncStorage.setItem('Recent', JSON.stringify(Array.from(recent)));
+			}
+		});
+	} finally {}
+};
 
 const styles = StyleSheet.create({
 	pageContainer: {

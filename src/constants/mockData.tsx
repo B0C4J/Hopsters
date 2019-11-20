@@ -19,7 +19,7 @@ const options = [
 				brewery: 'Hope Estate',
 				style: 'Chardonnay IPA',
 				strength: '9.5%',
-				description: 'The 2019 release of Macedon Harvest is where grape meets grain; in a happoed up IPA. Chardonnay juice from our Mecedon Ranges Vvineyard adds a fresh smoothness to this isntense Imperial brew.',
+				description: 'The 2019 release of Macedon Harvest is where grape meets grain; in a hopped up IPA. Chardonnay juice from our Macedon Ranges Vineyard adds a fresh smoothness to this intense Imperial brew.',
 				image: require('../../assets/Beers/macedon_harvest.png'),
 			},
 		]
