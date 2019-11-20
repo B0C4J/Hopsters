@@ -9,7 +9,7 @@ export default class IndividualDetailsScreen extends React.Component<Props> {
 	render() {
 		const data: any = this.props.navigation.getParam('data');
 
-		setRecentlyViewed(data);
+		setRecentlyViewed(data.id);
 		return (
 			<ScrollView>
 				<View style={ styles.pageContainer }>
@@ -30,19 +30,25 @@ export default class IndividualDetailsScreen extends React.Component<Props> {
 	}
 }
 
-const setRecentlyViewed = async (data: string) => {
-	let tempArray = [data];
+const setRecentlyViewed = async (id: number) => {
+	let tempArray = [id];
 
 	try {
 		AsyncStorage.getItem('Recent').then( async (value: any) => {
-			let recent = new Set(JSON.parse(value));
+			let recent = new Set(JSON.parse( value ));
 
 			if (recent.size === 0){
-				await AsyncStorage.setItem('Recent', JSON.stringify(tempArray));
+				await AsyncStorage.setItem('Recent', JSON.stringify( tempArray ));
 			}
-			else if(!value.includes(JSON.stringify(data))) {
-				recent.add(data);
-				await AsyncStorage.setItem('Recent', JSON.stringify(Array.from(recent)));
+			else if(recent.has(id)) {
+				recent.delete(id);
+				recent.add(id);
+				await AsyncStorage.setItem('Recent', JSON.stringify( Array.from(recent) ));
+
+			}
+			else {
+				recent.add(id);
+				await AsyncStorage.setItem('Recent', JSON.stringify( Array.from(recent) ));
 			}
 		});
 	} finally {}

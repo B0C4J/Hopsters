@@ -7,7 +7,7 @@ export interface Props {
 	icon: any,
 	navigation: any,
 	route: string,
-	data: any,
+	dataObject: any,
 }
 
 export default class Tile extends React.Component<Props> {
@@ -24,7 +24,7 @@ export default class Tile extends React.Component<Props> {
 				title: this.props.title,
 				icon: this.props.icon,
 				navigation: this.props.navigation,
-				data: this.props.data,
+				dataObject: this.props.dataObject,
 			},
 		});
 

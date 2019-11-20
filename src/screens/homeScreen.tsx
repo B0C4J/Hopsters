@@ -14,7 +14,7 @@ export default class HomeScreen extends React.Component<Props> {
 				style = { styles.pageContainer }
 				data = { constants.options }
 				keyExtractor = { item => item.key }
-				renderItem={({ item }) => <Tile title={ item.title } icon={ item.icon } navigation={ this.props.navigation } route="Tiles" data={ item.data }/>}
+				renderItem={({ item }) => <Tile title={ item.title } icon={ item.icon } navigation={ this.props.navigation } route="Tiles" dataObject={ item }/>}
 			/>
 		);
 	}
