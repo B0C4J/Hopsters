@@ -14,10 +14,10 @@ export default class ImageTile extends React.Component<Props> {
 	}
 
 	render() {
-		
+
 		const navigateAction = NavigationActions.navigate({
 			routeName: this.props.route,
-			
+
 			params: {
 				navigation: this.props.navigation,
 				data: this.props.data,
@@ -25,10 +25,10 @@ export default class ImageTile extends React.Component<Props> {
 		});
 
 		return (
-			<View style={ styles.tileContainer }>
+			<View style={styles.tileContainer}>
 				<TouchableWithoutFeedback onPress={() => this.props.navigation.dispatch(navigateAction)}>
-					<View style={ styles.tile }>
-						<Image style={{width: '100%', height: '100%', marginBottom: 10}} resizeMode='center' source={ this.props.data.image }/>
+					<View style={styles.tile}>
+						<Image style={styles.tileImage} resizeMode='center' source={this.props.data.image} />
 					</View>
 				</TouchableWithoutFeedback>
 			</View>
@@ -51,5 +51,10 @@ const styles = StyleSheet.create({
 		display: 'flex',
 		justifyContent: "center",
 		alignItems: "center",
-	}
+	},
+	tileImage: {
+		width: '100%',
+		height: '100%',
+		marginBottom: 10
+	},
 });

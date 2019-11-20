@@ -16,10 +16,10 @@ export default class Tile extends React.Component<Props> {
 	}
 
 	render() {
-		
+
 		const navigateAction = NavigationActions.navigate({
 			routeName: this.props.route,
-			
+
 			params: {
 				title: this.props.title,
 				icon: this.props.icon,
@@ -29,11 +29,11 @@ export default class Tile extends React.Component<Props> {
 		});
 
 		return (
-			<View style={ styles.tileContainer }>
+			<View style={styles.tileContainer}>
 				<TouchableWithoutFeedback onPress={() => this.props.navigation.dispatch(navigateAction)}>
-					<View style={ styles.tile }>
-						<Image style={{width: '50%', height: '50%', marginBottom: 10}} resizeMode='contain' source={ this.props.icon }/>
-						<Text style={{ color: '#fff' }}>{ this.props.title }</Text>
+					<View style={styles.tile}>
+						<Image style={styles.tileImage} resizeMode='contain' source={this.props.icon} />
+						<Text style={styles.tileText}>{this.props.title}</Text>
 					</View>
 				</TouchableWithoutFeedback>
 			</View>
@@ -56,5 +56,13 @@ const styles = StyleSheet.create({
 		display: 'flex',
 		justifyContent: "center",
 		alignItems: "center",
+	},
+	tileImage: {
+		width: '50%',
+		height: '50%',
+		marginBottom: 10
+	},
+	tileText: {
+		color: '#fff',
 	}
 });

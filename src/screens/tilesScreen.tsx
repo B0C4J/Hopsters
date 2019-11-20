@@ -40,11 +40,11 @@ export default class TilesScreen extends React.Component<Props> {
 
 		return (
 			<FlatList
-				style = { styles.pageContainer }
-				data = { data }
-				keyExtractor = { item => item.key }
-				numColumns={ 2 }
-				renderItem={({ item }) => <ImageTile navigation={ this.props.navigation } route="Details" data={ item } />}
+				style={styles.pageContainer}
+				data={data}
+				keyExtractor={item => item.key}
+				numColumns={2}
+				renderItem={({ item }) => <ImageTile navigation={this.props.navigation} route="Details" data={item} />}
 			/>
 		);
 	}

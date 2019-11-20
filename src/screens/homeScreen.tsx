@@ -11,10 +11,10 @@ export default class HomeScreen extends React.Component<Props> {
 	render() {
 		return (
 			<FlatList
-				style = { styles.pageContainer }
-				data = { constants.options }
-				keyExtractor = { item => item.key }
-				renderItem={({ item }) => <Tile title={ item.title } icon={ item.icon } navigation={ this.props.navigation } route="Tiles" dataObject={ item }/>}
+				style={styles.pageContainer}
+				data={constants.options}
+				keyExtractor={item => item.key}
+				renderItem={({ item }) => <Tile title={item.title} icon={item.icon} navigation={this.props.navigation} route="Tiles" dataObject={item} />}
 			/>
 		);
 	}
