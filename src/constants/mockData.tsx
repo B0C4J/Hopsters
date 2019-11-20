@@ -38,6 +38,7 @@ const options = [
 		key: '02',
 		title: 'Favorites',
 		icon: require('../../assets/icons/star.png'),
+		data: payload,
 	},
 ];
 
