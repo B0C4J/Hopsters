@@ -15,9 +15,9 @@ export default class TilesScreen extends React.Component<Props> {
 	componentDidMount() {
 		AsyncStorage.getItem('Recent').then((recent: any) => {
 			this.setState({
-				isLoading: false
+				isLoading: false,
+				value: JSON.parse(recent)
 			});
-			this.setState({ value: JSON.parse(recent) });
 		});
 	};
 
