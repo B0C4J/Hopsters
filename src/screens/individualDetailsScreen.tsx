@@ -9,7 +9,7 @@ export default class IndividualDetailsScreen extends React.Component<Props> {
 	render() {
 		const data: any = this.props.navigation.getParam('data');
 
-		recentlyViewed(data);
+		setRecentlyViewed(data);
 		return (
 			<ScrollView>
 				<View style={ styles.pageContainer }>
@@ -30,7 +30,7 @@ export default class IndividualDetailsScreen extends React.Component<Props> {
 	}
 }
 
-const recentlyViewed = async (data: string) => {
+const setRecentlyViewed = async (data: string) => {
 	let tempArray = [data];
 
 	try {
