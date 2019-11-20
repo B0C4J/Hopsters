@@ -28,14 +28,16 @@ export default class TilesScreen extends React.Component<Props> {
 
 	render() {
 		const dataObject: payloadData = this.props.navigation.getParam('dataObject');
-		let data: Array<any> = dataObject.data;
+		let data = dataObject.data;
 
-		if (this.state.isLoading && dataObject.key === '01') {
-			return <View><Text>Loading...</Text></View>;
-		}
 		if (dataObject.key === '01') {
+			if (this.state.isLoading) {
+				return <View><Text>Loading...</Text></View>;
+			}
+
 			data = data.filter(item => this.state.value.includes(item.id));
 		}
+
 		return (
 			<FlatList
 				style = { styles.pageContainer }
